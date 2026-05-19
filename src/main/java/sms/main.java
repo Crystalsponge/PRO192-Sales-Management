@@ -9,6 +9,7 @@ package sms;
  *
  * @author LEGION
  */
+//IMPORTANT REMEMBER TO SET COUNTER FOR CUSTOMER AND PRODUCT ID BY READING THEM FROM FILE FIRST THEN ASSIGN NEW ID TO NEW OBJECT
 public class main {
 
     public static void main(String[] args) {

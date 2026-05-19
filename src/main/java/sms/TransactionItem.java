@@ -12,5 +12,8 @@ package sms;
 
 //This class is for storing product items inside a transaction
 public class TransactionItem {
+    private Product product;
+    private int quantity;
+    private double unitPrice;
     
 }
