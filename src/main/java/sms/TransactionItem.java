@@ -17,7 +17,7 @@ public class TransactionItem {
     private double unitPrice;
 
     public TransactionItem(int quantity,Product product){
-        setgetProduct(product);
+        setProduct(product);
         setQuantity(quantity);
         
         //tranh truong hop user quen input product
