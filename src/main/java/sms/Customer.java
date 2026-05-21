@@ -24,8 +24,11 @@ public class Customer {
         setAddress(address);
         this.totalPurchase = 0;
     }
-    
-    
+
+    //Get total value for the (a) product
+    public double itemTotal(){
+        return this.unitPrice * this.quantity;
+    } 
     
     //Setter
     public static void setCounter(int lastIndex) {
