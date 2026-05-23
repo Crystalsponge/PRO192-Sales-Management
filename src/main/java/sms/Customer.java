@@ -10,14 +10,13 @@ package sms;
  */
 public class Customer {
 
-    private String customerID;
     private String name;
     private String phone;
     private String address;
     private double totalPurchase;
     
     //Constructor
-    public Customer(String customerID, String name, String phone, String address) {
+    public Customer(String name, String phone, String address) {
         this.name = name;
         this.phone = phone;
         this.address = address;

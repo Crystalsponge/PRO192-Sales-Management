@@ -17,8 +17,8 @@ public class TransactionItem {
     private double unitPrice;
 
     public TransactionItem(int quantity,Product product){
-        setProduct(product);
-        setQuantity(quantity);
+        this.product = product;
+        this.quantity = quantity;
         
         //tranh truong hop user quen input product
         if(product != null){
@@ -27,10 +27,7 @@ public class TransactionItem {
         }
     }
 
-    //Total amount of a product
-    public double getLineTotal(){
-        return this.unitPrice * this.quantity;
-    }
+
 
     //GETTER
 
@@ -48,15 +45,6 @@ public class TransactionItem {
 
     //SETTER 
 
-    public void setProduct(Product product){
-        if(product == null){
-            System.out.println("The product is Invalid! (none)");
-        }
-        else{
-            this.product = product;
-        }
-    }
-
     public void setQuantity(int quantity){
         if(quantity < 0){
             System.out.println("Quantity is Invalid! (<0)");
@@ -65,14 +53,4 @@ public class TransactionItem {
             this.quantity = quantity;
         }
     }
-
-    public void setUnitPrice(double unitPrice){
-        if(unitPrice < 0){
-            System.out.println("Unit price is Invalid! (<0)");
-        }
-        else{
-            this.unitPrice = unitPrice;
-        }
-    }
-    
 }

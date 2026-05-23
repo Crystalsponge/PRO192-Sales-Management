@@ -18,7 +18,7 @@ public final class Product {
     private int stockQuantity;
     
     //Constructor
-    Product(String name, String category, double price, int stockQuantity) {
+    public Product(String name, String category, double price, int stockQuantity) {
 
         this.name = name;
         this.category = category;
