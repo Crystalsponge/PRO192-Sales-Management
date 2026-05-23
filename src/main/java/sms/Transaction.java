@@ -1,53 +1,44 @@
 package sms;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
 
 public class Transaction {
-    private String transactionId;
-    private String customerId;       
+    
+    public enum Status {
+        ACTIVE,
+        COMPLETED,
+        CANCELLED
+    }
+    private Customer customer;
     private List<TransactionItem> items;
-    private String date;         
+    private LocalDate date;
+    private Status status;
     private double totalAmount;
     
     // Constructor
-    public Transaction(String transactionId, String customerId, String date) {
-        this.transactionId = transactionId;
-        this.customerId = customerId;
+    public Transaction(Customer customer, LocalDate date) {
+        this.customer = customer;
         this.date = date;
         this.items = new ArrayList<>();
+        status = Status.ACTIVE;
         this.totalAmount = 0;
     }
+
     
     // Getters
-    public String getTransactionId() {
-        return transactionId;
-    }
-    public String getCustomerId() {
-        return customerId;
-    }
+
     public List<TransactionItem> getItems() {
         return items;
     }
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
     public double getTotalAmount() {
         return totalAmount;
     }
+    //TODO 1: Add Function to add more TransactionItem into "items" list
     
-    // Setters
-    public void setDate(String date) {
-        if (date == null || date.trim().isEmpty()) {
-            System.out.println("Date cannot be empty");
-            return;
-        }
-        this.date = date;
-    }
-    public void setTotalAmount(double totalAmount) {
-        if (totalAmount < 0) {
-            System.out.println("Total amount cannot be negative");
-            return;
-        }
-        this.totalAmount = totalAmount;
-    }
+    //TODO 2: Add functions to change order's status (ex: complete(), cancel())
 }
+    

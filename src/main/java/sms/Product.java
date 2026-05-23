@@ -10,9 +10,8 @@ package sms;
  */
 public final class Product {
 
-    private static int counter = 0;
     //Fields
-    private final String productID;
+
     private String name;
     private String category;
     private double price;
@@ -20,17 +19,15 @@ public final class Product {
     
     //Constructor
     Product(String name, String category, double price, int stockQuantity) {
-        this.productID = "P" + String.format("%03d", ++counter);
-        setName(name);
-        setCategory(category);
-        setPrice(price);
-        setStock(stockQuantity);
+
+        this.name = name;
+        this.category = category;
+        this.price = price;
+        this.stockQuantity = stockQuantity;
     }
     
     //Setter
-    public static void setCounter(int lastIndex) {
-        counter = lastIndex;
-    }
+
     public void setName(String name) {
         if(name == null || name.trim().isEmpty()) {
             System.out.println("Name cannot be empty");

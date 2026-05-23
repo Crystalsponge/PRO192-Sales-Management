@@ -9,7 +9,7 @@ package sms;
  * @author LEGION
  */
 public class Customer {
-    private static int counter = 0;
+
     private String customerID;
     private String name;
     private String phone;
@@ -18,22 +18,14 @@ public class Customer {
     
     //Constructor
     public Customer(String customerID, String name, String phone, String address) {
-        this.customerID = "C" + String.format("%03d", ++counter);
-        setName(name);
-        setPhone(phone);
-        setAddress(address);
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
         this.totalPurchase = 0;
     }
 
-    //Get total value for the (a) product
-    public double itemTotal(){
-        return this.unitPrice * this.quantity;
-    } 
-    
     //Setter
-    public static void setCounter(int lastIndex) {
-        counter = lastIndex;
-    }
+
     public void setName(String name) {
         if(name == null || name.trim().isEmpty()) {
             System.out.println("Name cannot be empty");
