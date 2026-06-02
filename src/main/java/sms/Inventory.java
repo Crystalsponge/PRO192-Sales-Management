@@ -47,4 +47,56 @@ public class Inventory {
         }
         this.customers = customers;
     }
+    //Add/delete feature
+    //Customer
+    public boolean addCustomer(Customer customer) {
+        if(!utils.notNull(customer)) {
+            System.out.println("Customer cannot be null!");
+            return false;
+        }
+        customers.add(customer);
+        return true;
+    }
+    public boolean deleteCustomer(Customer customer) {
+        if(!utils.notNull(customer)) {
+            System.out.println("Cannot delete null customer");
+            return false;
+        }
+        String target = customer.getPhone();
+        if (target == null) {
+            System.out.println("Customer has empty phone number. Cannot delete");
+            return false;
+        }
+        return customers.removeIf(c -> c.getPhone() != null && c.getPhone().equals(target));
+    }
+    public Customer getCustomerByPhone(String phone) {
+        if(!utils.validatePhone(phone)) {return null;}
+        
+        for(Customer c : customers) {
+            if(c.getPhone() != null && c.getPhone().equals(phone)) {return c;}
+        }
+        System.out.println("Customer not found.");
+        return null;
+    }
+    public boolean customerExists(String p) {
+        return getCustomerByPhone(p) != null;
+    }
+    //TODO: IDK WHAT TO SHOW YET -> LAZY TO DESIGN UI
+    public void showAllCustomer() {
+    }
+    /*
+    @param 
+    */
+    public boolean updateCustomer(String oldPhone, Customer updatedCustomer) {
+        if(!utils.notNull(updatedCustomer)) return false;
+        Customer existing = getCustomerByPhone(oldPhone);
+        if (existing == null) return false;
+        
+        existing.setAddress(updatedCustomer.getAddress());
+        existing.setName(updatedCustomer.getName());
+        existing.setPhone(updatedCustomer.getPhone());
+        
+    }
+    
+    
 }
