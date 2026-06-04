@@ -11,28 +11,22 @@ import java.util.Scanner;
  * @author LEGION
  */
 public class Customer {
-    private static int counter = 0;
-    private String customerID;
+
     private String name;
     private String phone;
     private String address;
     private double totalPurchase;
     
     //Constructor
-    public Customer(String customerID, String name, String phone, String address) {
-        this.customerID = "C" + String.format("%03d", ++counter);
-        setName(name);
-        setPhone(phone);
-        setAddress(address);
+    public Customer(String name, String phone, String address) {
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
         this.totalPurchase = 0;
     }
-    
-    
-    
+
     //Setter
-    public static void setCounter(int lastIndex) {
-        counter = lastIndex;
-    }
+
     public void setName(String name) {
         if(name == null || name.trim().isEmpty()) {
             System.out.println("Name cannot be empty");
