@@ -4,8 +4,6 @@
  */
 package sms;
 
-import java.util.Scanner;
-
 /**
  *
  * @author LEGION
@@ -16,12 +14,12 @@ public class Customer {
     private String phone;
     private String address;
     private double totalPurchase;
-    
-    //Constructor
+
+    //Constructor - go through setters so data is validated on creation
     public Customer(String name, String phone, String address) {
-        this.name = name;
-        this.phone = phone;
-        this.address = address;
+        setName(name);
+        setPhone(phone);
+        setAddress(address);
         this.totalPurchase = 0;
     }
 
@@ -35,13 +33,9 @@ public class Customer {
         this.name = name;
     }
     public void setPhone(String phone) {
-        if (phone == null || phone.trim().isEmpty()) {
-        System.out.println("Phone cannot be empty");
-        return;
-        }
-        if (!phone.matches("\\d{10,11}")) {
-        System.out.println("Phone must contain 10-11 digits only");
-        return;
+        // Use the shared validation rule so Customer and utils stay consistent
+        if (!utils.validatePhone(phone)) {
+            return;
         }
         this.phone = phone;
     }
@@ -59,36 +53,25 @@ public class Customer {
         }
         this.totalPurchase = totalPurchase;
     }
-    public void addTotalPurchase() {
-    Scanner scanner = new Scanner(System.in);
-    System.out.print("Add purchases: ");
-    int amount = scanner.nextInt();
-    //check amout validation
-    if (amount < 0) {
-        System.out.println("Can not be less than 0");
-        return; 
+    // I/O removed: the menu reads the amount and passes it in
+    public void addTotalPurchase(double amount) {
+        if (amount < 0) {
+            System.out.println("Amount cannot be less than 0");
+            return;
+        }
+        this.totalPurchase += amount;
     }
-
-    this.totalPurchase += amount;
-}
-    public void reduceTotalPurchase() {
-    Scanner scanner = new Scanner(System.in);
-    System.out.print("Reduce purchases: ");
-    int amount = scanner.nextInt(); 
-
-    //check amount validation
-    if (amount < 0) {
-        System.out.println("Can not be less than 0");
-        return;
+    public void reduceTotalPurchase(double amount) {
+        if (amount < 0) {
+            System.out.println("Amount cannot be less than 0");
+            return;
+        }
+        if (this.totalPurchase - amount < 0) {
+            System.out.println("Total purchase cannot go below 0");
+            return;
+        }
+        this.totalPurchase -= amount;
     }
-    //check amount ò total
-    if (this.totalPurchase - amount < 0) {
-        System.out.println("can not ");
-        return;
-    }
-
-    this.totalPurchase -= amount;
-}
     //Getter
     public String getName() {
         return name;

@@ -81,21 +81,34 @@ public class Inventory {
     public boolean customerExists(String p) {
         return getCustomerByPhone(p) != null;
     }
-    //TODO: IDK WHAT TO SHOW YET -> LAZY TO DESIGN UI
     public void showAllCustomer() {
+        if (customers.isEmpty()) {
+            System.out.println("No customers found.");
+            return;
+        }
+        System.out.println("----------- CUSTOMER LIST -----------");
+        System.out.printf("%-20s %-12s %-25s %-15s%n",
+                "Name", "Phone", "Address", "Total Purchase");
+        System.out.println("--------------------------------------------------------------------------");
+        for (Customer c : customers) {
+            System.out.printf("%-20s %-12s %-25s %-15.0f%n",
+                    c.getName(), c.getPhone(), c.getAddress(), c.getTotalPurchase());
+        }
+        System.out.println("--------------------------------------------------------------------------");
     }
     /*
-    @param 
+    @param oldPhone   phone of the customer to update
+    @param updatedCustomer  holds the new field values
     */
     public boolean updateCustomer(String oldPhone, Customer updatedCustomer) {
         if(!utils.notNull(updatedCustomer)) return false;
         Customer existing = getCustomerByPhone(oldPhone);
         if (existing == null) return false;
-        
-        existing.setAddress(updatedCustomer.getAddress());
+
         existing.setName(updatedCustomer.getName());
         existing.setPhone(updatedCustomer.getPhone());
-        
+        existing.setAddress(updatedCustomer.getAddress());
+        return true;
     }
     
     
