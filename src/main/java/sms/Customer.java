@@ -4,6 +4,8 @@
  */
 package sms;
 
+import java.util.Scanner;
+
 /**
  *
  * @author LEGION
@@ -63,6 +65,36 @@ public class Customer {
         }
         this.totalPurchase = totalPurchase;
     }
+    public void addTotalPurchase() {
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("Add purchases: ");
+    int amount = scanner.nextInt();
+    //check amout validation
+    if (amount < 0) {
+        System.out.println("Can not be less than 0");
+        return; 
+    }
+
+    this.totalPurchase += amount;
+}
+    public void reduceTotalPurchase() {
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("Reduce purchases: ");
+    int amount = scanner.nextInt(); 
+
+    //check amount validation
+    if (amount < 0) {
+        System.out.println("Can not be less than 0");
+        return;
+    }
+    //check amount ò total
+    if (this.totalPurchase - amount < 0) {
+        System.out.println("can not ");
+        return;
+    }
+
+    this.totalPurchase -= amount;
+}
     //Getter
     public String getName() {
         return name;
