@@ -4,18 +4,20 @@
  */
 package sms;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author LEGION
  */
-public final class Product {
+public abstract class Product {
 
     //Fields
 
-    private String name;
-    private String category;
-    private double price;
-    private int stockQuantity;
+    protected String name;
+    protected String category;
+    protected double price;
+    protected int stockQuantity;
     
     //Constructor
     public Product(String name, String category, double price, int stockQuantity) {
@@ -69,5 +71,5 @@ public final class Product {
     public int getStock() {
         return stockQuantity;
     }
-    
+
 }
