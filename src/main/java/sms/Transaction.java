@@ -40,5 +40,6 @@ public class Transaction {
     //TODO 1: Add Function to add more TransactionItem into "items" list
     
     //TODO 2: Add functions to change order's status (ex: complete(), cancel())
+
 }
     
