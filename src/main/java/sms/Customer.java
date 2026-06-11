@@ -8,7 +8,7 @@ package sms;
  *
  * @author LEGION
  */
-public class Customer {
+public class  Customer {
     private static int counter = 0;
     private String customerID;
     private String name;
