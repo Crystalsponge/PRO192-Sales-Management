@@ -4,7 +4,6 @@
  */
 package sms;
 
-import java.time.LocalDate;
 
 /**
  *
@@ -72,4 +71,9 @@ public abstract class Product {
         return stockQuantity;
     }
 
+    //method product
+    public void showInfo() {
+        System.out.printf("%-20s %-20s %-10.2f %-16d\n", 
+                name, category, price, stockQuantity);
+    }
 }

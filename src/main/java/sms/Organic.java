@@ -8,6 +8,7 @@ import java.time.LocalDate;
  */
 public class Organic extends Product {
     //field
+    //thêm ngày nhập sản phẩm
     private LocalDate expireDate;
     
     //constructor
@@ -20,18 +21,18 @@ public class Organic extends Product {
     //getter/setter
 
     public LocalDate getExpireDate() {
-        return expireDate; 
+        return expireDate;  
     }
 
     public void setExpireDate(LocalDate expireDate) {
         this.expireDate = expireDate;
     }
     
-    //method
+    //method organic
     @Override
     public String toString() {
-        return String.format("%-20s %-20s %-10.2f %-16d %-15s",
-                name, category, price, stockQuantity,expireDate);
+        return String.format("%s %-15s", super.toString(),
+                expireDate);
     }
     
     
