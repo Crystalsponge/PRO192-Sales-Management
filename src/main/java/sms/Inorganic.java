@@ -8,6 +8,7 @@ import java.time.LocalDate;
  * @author Admin
  */
 public class Inorganic extends Product {
+    //thêm ngày nhập sản phẩm
     private LocalDate warrantyDate;
     
     //construcstor
@@ -26,10 +27,10 @@ public class Inorganic extends Product {
         this.warrantyDate = warrantyDate;
     }
     
-    //method
+    //method inorganic
     @Override
     public String toString() {
-        return String.format("%-20s %-20s %-10.2f %-16d %-15s",
-                name, category, price, stockQuantity, warrantyDate);
+        return String.format("%s %-15s", super.toString(),
+                warrantyDate);
     }
 }
